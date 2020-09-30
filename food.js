@@ -1,3 +1,4 @@
+import { randomGridPostion } from "./grid.js";
 import { onSnake, expandSnake } from "./snake.js";
 
 let food = randomGridPostion();
