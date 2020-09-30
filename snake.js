@@ -5,6 +5,7 @@ const snakeBody = [{ x: 11, y: 11 }];
 let newSegments = 0;
 
 export function update() {
+  addSegments();
   const inputDirectrion = getInputDirection();
   for (let i = snakeBody.length - 2; i >= 0; i--) {
     snakeBody[i + 1] = { ...snakeBody[i] };
@@ -35,4 +36,12 @@ export function onSnake(position) {
 
 function equalPositions(segment, position) {
   return segment.x === position.x && segment.y === position.y;
+}
+
+function addSegments() {
+  for (let i = 0; i < newSegments; i++) {
+    snakeBody[snakeBody.length] = { ...snakeBody[snakeBody.length - 1] };
+  }
+
+  newSegments = 0;
 }
